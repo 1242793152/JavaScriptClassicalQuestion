@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let str = 'abcdefg'
+    // 方式一 使用数组的reverse()  先将字符串变成数组再使用reverse()翻转再使用.join('')变为字符串
+    // const new_str = str.split('').reverse().join('') 
+    // console.log(new_str)
+
+    // 方式二
+    // let new_str = ''
+    // let new_arr = str.split('')
+    // for(let i=new_arr.length-1;i>=0;i--){
+    //   console.log(new_arr[i])
+    //   new_str+=new_arr[i]
+    // }
+    // console.log(new_str)
+
+    // 方式三使用：字符串的charAt() charAt() 方法从一个字符串中返回指定的字符。
+// 语法：str.charAt(index)
+// 参数：一个介于 0 和字符串长度减 1 之间的整数。(0~length-1) 如果没有提供索引，charAt() 将使用 0。
+// let new_str = ''
+// for(let i = str.length-1;i>=0;i--){
+//   new_str += str.charAt(i)
+// }
+// console.log(new_str)
+
+
+    // 方式四：   递归方法去获取charAt() str:字符串  index 索引  result输出结果
+  //   let new_str = ''
+  // function reverString(str,index,result){
+  //   // console.log(str)
+  //   //  console.log(index)
+  //   //  console.log(result)
+  //   if(index<0){
+  //     console.log(result)
+  //     return result
+  //    }
+  //    result += str.charAt(index)
+  //    index--
+  //   return reverString(str,index,result)   // 加了return的话 它有返回结果 如果不加那么就没有
+  // }
+  // console.log(reverString(str,str.length-1,new_str))
+
+  // 方式五 使用call的调用方法改变它的this
+  let new_arr = Array.prototype.slice.call(str)
+  console.log(new_arr)
+  console.log(new_arr.reverse().join(''))
+  </script>
+</body>
+</html>
